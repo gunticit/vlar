@@ -4,3 +4,6 @@ src/vendor/
 fe/node_modules/
 .DS_Store
 .idea
+
+##############
+fe/node_modules/*

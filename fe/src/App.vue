@@ -1,26 +1,43 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
-    <nav class="bg-white shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-          <div class="flex">
-            <router-link to="/" class="flex items-center px-2 py-2 text-gray-700 hover:text-gray-900">
-              Home
-            </router-link>
-            <router-link to="/about" class="flex items-center px-2 py-2 text-gray-700 hover:text-gray-900">
-              About
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      <router-view></router-view>
-    </main>
-  </div>
+  <RouterView />
 </template>
 
 <script setup>
-// Component logic here if needed
+import { RouterView } from 'vue-router'
+import { useAuthStore } from './stores/auth'
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const authStore = useAuthStore()
+
+// Fetch user data on app mount if token exists
+onMounted(async () => {
+  if (authStore.token) {
+    try {
+      await authStore.fetchUser()
+      router.push('/home')
+    } catch (error) {
+      console.error('Failed to fetch user:', error)
+    }
+  }
+})
 </script>
+
+<style>
+/* Add any global styles here */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Ensure proper height for layout */
+html, body {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+</style>
