@@ -1,0 +1,6 @@
+db_data/
+.env
+src/vendor/
+fe/node_modules/
+.DS_Store
+.idea
