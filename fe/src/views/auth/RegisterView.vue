@@ -3,19 +3,19 @@
     <div class="max-w-md w-full space-y-8">
       <div>
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Create your account
+          Tạo tài khoản
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          Or
+          hoặc
           <router-link to="/login" class="font-medium text-indigo-600 hover:text-indigo-500">
-            sign in to your account
+            đăng nhập nếu đã đăng ký
           </router-link>
         </p>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent="handleSubmit">
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
-            <label for="name" class="sr-only">Full name</label>
+            <label for="name" class="sr-only">Tên đầy đủ</label>
             <input
               id="name"
               v-model="form.name"
@@ -23,12 +23,12 @@
               type="text"
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Full name"
+              placeholder="Tên đầy đủ"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
           <div>
-            <label for="email-address" class="sr-only">Email address</label>
+            <label for="email-address" class="sr-only">Email</label>
             <input
               id="email-address"
               v-model="form.email"
@@ -37,12 +37,12 @@
               autocomplete="email"
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Email address"
+              placeholder="Email"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
           <div>
-            <label for="password" class="sr-only">Password</label>
+            <label for="password" class="sr-only">Mật khẩu</label>
             <input
               id="password"
               v-model="form.password"
@@ -51,12 +51,12 @@
               autocomplete="new-password"
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Password"
+              placeholder="Mật khẩu"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
           <div>
-            <label for="password_confirmation" class="sr-only">Confirm Password</label>
+            <label for="password_confirmation" class="sr-only">Xác nhận lại email</label>
             <input
               id="password_confirmation"
               v-model="form.password_confirmation"
@@ -65,7 +65,7 @@
               autocomplete="new-password"
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Confirm password"
+              placeholder="Xác nhận lại email"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>

@@ -3,12 +3,12 @@
     <div class="max-w-md w-full space-y-8">
       <div>
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Sign in to your account
+          Đăng nhập
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          Or
+          hoặc
           <router-link to="/register" class="font-medium text-indigo-600 hover:text-indigo-500">
-            create a new account
+            tạo tài khoản
           </router-link>
         </p>
       </div>
@@ -37,7 +37,7 @@
               type="password"
               autocomplete="current-password"
               required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              class="appearance-none rounded-none relative block w-full px-3 py-2 mt-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Password"
               :class="{ 'border-red-500': authStore.error }"
             />

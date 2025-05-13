@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class AuthService
 {
@@ -102,8 +103,26 @@ class AuthService
     {
         try {
             $status = Password::sendResetLink(['email' => $email]);
+            Log::info('Password reset attempt', [
+                'email' => $email,
+                'status' => $status
+            ]);
+            
+            if ($status !== Password::RESET_LINK_SENT) {
+                Log::error('Password reset failed', [
+                    'email' => $email,
+                    'status' => $status,
+                    'status_code' => Password::RESET_LINK_SENT
+                ]);
+            }
+            
             return $status === Password::RESET_LINK_SENT;
         } catch (\Exception $e) {
+            Log::error('Password reset exception', [
+                'email' => $email,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
             return false;
         }
     }
@@ -118,12 +137,28 @@ class AuthService
     {
         try {
             $status = Password::reset($data, function ($user, $password) {
-                $user->password = Hash::make($password);
-                $user->save();
+                User::where('id', $user->id)->update(['password' => Hash::make($password)]);
             });
+            
+            Log::info('Password reset attempt', [
+                'email' => $data['email'],
+                'status' => $status
+            ]);
+
+            if ($status !== Password::PASSWORD_RESET) {
+                Log::error('Password reset failed', [
+                    'email' => $data['email'],
+                    'status' => $status
+                ]);
+            }
             
             return $status === Password::PASSWORD_RESET;
         } catch (\Exception $e) {
+            Log::error('Password reset exception', [
+                'email' => $data['email'] ?? 'unknown',
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
             return false;
         }
     }
@@ -141,12 +176,25 @@ class AuthService
             $user = Auth::user();
             
             if (!Hash::check($currentPassword, $user->password)) {
+                Log::warning('Invalid current password provided for password change', [
+                    'user_id' => $user->id
+                ]);
                 return false;
             }
 
-            $user->password = Hash::make($newPassword);
-            return $user->save();
+            User::where('id', $user->id)->update(['password' => Hash::make($newPassword)]);
+
+            Log::info('Password changed successfully', [
+                'user_id' => $user->id
+            ]);
+            
+            return true;
         } catch (\Exception $e) {
+            Log::error('Password change exception', [
+                'user_id' => Auth::id(),
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
             return false;
         }
     }

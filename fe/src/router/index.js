@@ -23,7 +23,6 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token')
   const publicRoutes = ['login', 'register', 'forgot-password', 'reset-password']
-  
   if (to.meta.requiresAuth && !token) {
     // Redirect to login if trying to access protected route without token
     next({ name: 'login' })

@@ -20,6 +20,7 @@ export const useAuthStore = defineStore("auth", () => {
         token.value = newToken;
         if (newToken) {
             localStorage.setItem("token", newToken);
+            console.log('newToken', newToken);
             axios.defaults.headers.common["Authorization"] = `Bearer ${newToken}`;
         } else {
             localStorage.removeItem("token");
@@ -46,7 +47,7 @@ export const useAuthStore = defineStore("auth", () => {
         error.value = null;
         try {
             const response = await axios.post("/api/auth/login", credentials);
-            setToken(response.data.access_token);
+            setToken(response.data.data.access_token);
             return response.data;
         } catch (err) {
             error.value = err.response?.data?.message || "Login failed";

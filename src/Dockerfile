@@ -31,6 +31,7 @@ RUN composer install --no-dev --optimize-autoloader
 
 # Phân quyền cho thư mục storage và bootstrap/cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Expose cổng
 EXPOSE 9000
