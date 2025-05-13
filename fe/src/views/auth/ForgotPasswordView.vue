@@ -59,7 +59,7 @@
 
         <div class="flex items-center justify-between">
           <div class="text-sm">
-            <router-link to="/login" class="font-medium text-indigo-600 hover:text-indigo-500">
+            <router-link to="/login" class="font-medium text-[#154EC1] hover:text-indigo-500">
               Back to login
             </router-link>
           </div>

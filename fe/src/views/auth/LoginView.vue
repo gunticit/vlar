@@ -1,21 +1,18 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
-      <div>
+  <div class="flex items-center justify-center bg-gray-50">
+    <div class="hidden md:flex w-[35%] min-h-screen bg-[#154EC1] items-center justify-center text-white text-3xl font-bold">
+      VUESTIC <span class="text-sm font-normal ml-1">ADMIN</span>
+    </div>
+    <div class="w-full md:w-[65%] min-h-screen flex flex-col items-center justify-center">
+      <div class="w-[80%] md:w-[420px]">
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Đăng nhập
         </h2>
-        <p class="mt-2 text-center text-sm text-gray-600">
-          hoặc
-          <router-link to="/register" class="font-medium text-indigo-600 hover:text-indigo-500">
-            tạo tài khoản
-          </router-link>
-        </p>
       </div>
-      <form class="mt-8 space-y-6" @submit.prevent="handleSubmit">
+      <form class="mt-8 space-y-6 w-[80%] md:w-[420px]" @submit.prevent="handleSubmit">
         <div class="rounded-md shadow-sm -space-y-px">
-          <div>
-            <label for="email-address" class="sr-only">Email address</label>
+          <div class="!mb-2">
+            <label for="email-address" class="text-[9px] font-bold uppercase text-[#154ec1]">Email</label>
             <input
               id="email-address"
               v-model="form.email"
@@ -24,12 +21,11 @@
               autocomplete="email"
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Email address"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
-          <div>
-            <label for="password" class="sr-only">Password</label>
+          <div class="!mb-2">
+            <label for="password" class="text-[9px] font-bold uppercase text-[#154ec1]">Mật khẩu</label>
             <input
               id="password"
               v-model="form.password"
@@ -37,8 +33,7 @@
               type="password"
               autocomplete="current-password"
               required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 mt-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Password"
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
@@ -59,24 +54,25 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between !mt-2">
+          <p class="text-[#262824] flex align-items gap-2 text-sm"><input type="checkbox" /> <span>Ghi nhớ mật khẩu</span></p>
           <div class="text-sm">
-            <router-link to="/forgot-password" class="font-medium text-indigo-600 hover:text-indigo-500">
-              Forgot your password?
+            <router-link to="/forgot-password" class="font-medium text-[#154EC1] hover:text-indigo-500">
+              Quên mật khẩu?
             </router-link>
           </div>
         </div>
 
-        <div>
+        <div class="!mt-2">
           <button
             type="submit"
             :disabled="authStore.isLoading"
-            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="group rounded relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium text-white bg-[#154EC1] hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             :class="{ 'opacity-50 cursor-not-allowed': authStore.isLoading }"
           >
             <span class="absolute left-0 inset-y-0 flex items-center pl-3">
               <svg
-                class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                class="h-4 w-4 text-white group-hover:text-indigo-400"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -89,8 +85,14 @@
                 />
               </svg>
             </span>
-            {{ authStore.isLoading ? 'Signing in...' : 'Sign in' }}
+            {{ authStore.isLoading ? 'Đang đăng nhập...' : 'Đăng nhập' }}
           </button>
+          <p class="mt-2 text-center text-sm text-gray-600">
+            hoặc
+            <router-link to="/register" class="font-medium text-[#154ec1] hover:text-indigo-500">
+              tạo tài khoản
+            </router-link>
+          </p>
         </div>
       </form>
     </div>

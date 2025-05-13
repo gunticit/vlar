@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white shadow-sm h-16 fixed top-0 right-0 left-64 z-10">
+  <header class="bg-white shadow-sm h-[64px] fixed top-0 right-0 left-64 z-10">
     <div class="h-full px-6 flex items-center justify-between">
       <!-- Breadcrumb -->
       <div class="flex items-center text-sm">

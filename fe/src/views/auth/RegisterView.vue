@@ -1,34 +1,36 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
-      <div>
+  <div class="flex items-center justify-center bg-gray-50">
+    <div class="hidden md:flex w-[35%] min-h-screen bg-[#154EC1] items-center justify-center text-white text-3xl font-bold">
+      VUESTIC <span class="text-sm font-normal ml-1">ADMIN</span>
+    </div>
+    <div class="w-full md:w-[65%] min-h-screen flex flex-col items-center justify-center">
+      <div class="w-[80%] md:w-[420px]">
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Tạo tài khoản
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
           hoặc
-          <router-link to="/login" class="font-medium text-indigo-600 hover:text-indigo-500">
+          <router-link to="/login" class="font-medium text-[#154ec1] hover:text-indigo-500">
             đăng nhập nếu đã đăng ký
           </router-link>
         </p>
       </div>
-      <form class="mt-8 space-y-6" @submit.prevent="handleSubmit">
+      <form class="mt-8 space-y-6 w-[80%] md:w-[420px]" @submit.prevent="handleSubmit">
         <div class="rounded-md shadow-sm -space-y-px">
-          <div>
-            <label for="name" class="sr-only">Tên đầy đủ</label>
+          <div class="!mb-2">
+            <label for="name" class="text-[9px] font-bold uppercase text-[#154ec1]">Tên đầy đủ</label>
             <input
               id="name"
               v-model="form.name"
               name="name"
               type="text"
               required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Tên đầy đủ"
+              class="appearance-none rounded relative block w-full px-3 py-2 border border-[#dee5f2] placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
-          <div>
-            <label for="email-address" class="sr-only">Email</label>
+          <div class="!mb-2">
+            <label for="email-address" class="text-[9px] font-bold uppercase text-[#154ec1]">Email</label>
             <input
               id="email-address"
               v-model="form.email"
@@ -36,13 +38,12 @@
               type="email"
               autocomplete="email"
               required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Email"
+              class="appearance-none rounded relative block w-full px-3 py-2 border border-[#dee5f2] placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
-          <div>
-            <label for="password" class="sr-only">Mật khẩu</label>
+          <div class="!mb-2">
+            <label for="password" class="text-[9px] font-bold uppercase text-[#154ec1]">Mật khẩu</label>
             <input
               id="password"
               v-model="form.password"
@@ -50,13 +51,12 @@
               type="password"
               autocomplete="new-password"
               required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Mật khẩu"
+              class="appearance-none rounded relative block w-full px-3 py-2 border border-[#dee5f2] placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
-          <div>
-            <label for="password_confirmation" class="sr-only">Xác nhận lại email</label>
+          <div class="!mb-2">
+            <label for="password_confirmation" class="text-[9px] font-bold uppercase text-[#154ec1]">Nhập lại mật khẩu</label>
             <input
               id="password_confirmation"
               v-model="form.password_confirmation"
@@ -64,8 +64,7 @@
               type="password"
               autocomplete="new-password"
               required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Xác nhận lại email"
+              class="appearance-none relative block w-full px-3 py-2 border border-[#dee5f2] rounded placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               :class="{ 'border-red-500': authStore.error }"
             />
           </div>
@@ -108,7 +107,7 @@
                 />
               </svg>
             </span>
-            {{ authStore.isLoading ? 'Creating account...' : 'Create account' }}
+            {{ authStore.isLoading ? 'Đang tạo tài khoản...' : 'Tạo tài khoản' }}
           </button>
         </div>
       </form>
