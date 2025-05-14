@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import authRoutes from './auth.routes'
 import dashboardRoutes from './dashboard.routes'
+import memberRoutes from './member.routes'
+import projectRoutes from './project.routes'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,6 +13,8 @@ const router = createRouter({
     },
     ...authRoutes,
     ...dashboardRoutes,
+    ...memberRoutes,
+    ...projectRoutes,
     // Catch-all route for 404
     {
       path: '/:pathMatch(.*)*',

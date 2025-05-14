@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\Member\Services;
 
-use App\Repositories\Member\MemberRepositoryInterface;
+use App\Modules\Member\Repositories\MemberRepositoryInterface;
 use Illuminate\Validation\ValidationException;
 
 class MemberService {

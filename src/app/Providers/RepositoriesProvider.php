@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Support\ServiceProvider;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -18,8 +20,8 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $modules = $this->getModules();
         foreach ($modules as $module) {
-            $interface = "App\{$module}\Repositories\\{$module}RepositoryInterface";
-            $repository = "App\{$module}\Repositories\\{$module}Repository";
+            $interface = "App\\Modules\\{$module}\\Repositories\\{$module}RepositoryInterface";
+            $repository = "App\\Modules\\{$module}\\Repositories\\{$module}Repository";
             $this->app->bind($interface, $repository);
         }
     }
@@ -28,10 +30,10 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $modulePaths = app_path('Modules');
         $modules = [];
-        if(file_exists($modulePaths)) {
-            $modules = scandir($modulePaths);
-            foreach($modules as $module) {
-                if(is_dir($modulePaths . '/' . $module) && $module !== '.' && $module !== '..') {
+        if (file_exists($modulePaths)) {
+            $dirs = scandir($modulePaths);
+            foreach ($dirs as $module) {
+                if (is_dir($modulePaths . '/' . $module) && $module !== '.' && $module !== '..') {
                     $modules[] = $module;
                 }
             }
