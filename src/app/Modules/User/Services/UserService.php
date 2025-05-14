@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\User\Services;
 
 use App\Modules\User\Repositories\UserRepositoryInterface; // Ensure this interface exists or adjust accordingly
 use Illuminate\Validation\ValidationException;

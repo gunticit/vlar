@@ -3,7 +3,7 @@
 namespace App\Modules\User\Controllers;
 
 use App\Http\Controllers\BaseController;
-use App\Services\UserService;
+use App\Modules\User\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

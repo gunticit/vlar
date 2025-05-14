@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\Setting\Services;
 
 use App\Repositories\Setting\SettingRepositoryInterface;
 use Illuminate\Validation\ValidationException;

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Auth\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Setting extends Model
+class Auth extends Model
 {
     use HasFactory, SoftDeletes;
 }

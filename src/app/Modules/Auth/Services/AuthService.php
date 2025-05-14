@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\Auth\Services;
 
-use App\Repositories\Auth\AuthRepositoryInterface;
+use App\Modules\Auth\Repositories\AuthRepositoryInterface;
 use Illuminate\Validation\ValidationException;
 
 class AuthService {

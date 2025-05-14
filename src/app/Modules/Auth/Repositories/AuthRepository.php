@@ -2,7 +2,7 @@
 namespace App\Modules\Auth\Repositories;
 
 use App\Repositories\BaseRepository;
-use App\Modules\Auth\Models;
+use App\Modules\Auth\Models\Auth;
 use Illuminate\Support\Facades\Request;
 
 class  AuthRepository extends BaseRepository implements AuthRepositoryInterface

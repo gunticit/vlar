@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\Payment\Services;
 
 use App\Repositories\Payment\PaymentRepositoryInterface;
 use Illuminate\Validation\ValidationException;

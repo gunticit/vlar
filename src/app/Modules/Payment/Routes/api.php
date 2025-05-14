@@ -3,11 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
-use App\Modules\Payment\Controllers\PaymentController;
+use App\Modules\Member\Controllers\MemberController;
 
 Route::group([
-    'prefix' => '',
-    'middleware' => '',
+    'prefix' => 'payment',
+    'middleware' => ['auth:api']
 ], function () {
-    Route::resource('', PaymentController::class);
+    
 });

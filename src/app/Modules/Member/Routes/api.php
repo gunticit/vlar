@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Modules\Member\Controllers\MemberController;
 
 Route::group([
-    'prefix' => '',
-    'middleware' => '',
+    'prefix' => 'member',
+    'middleware' => ['auth:api']
 ], function () {
-    Route::resource('', MemberController::class);
+    
 });
