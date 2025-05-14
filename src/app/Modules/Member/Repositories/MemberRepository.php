@@ -2,10 +2,9 @@
 namespace App\Modules\Member\Repositories;
 
 use App\Repositories\BaseRepository;
-use App\Modules\Member\Models;
-use Illuminate\Support\Facades\Request;
+use App\Modules\Member\Models\Member;
 
-class  MemberRepository extends BaseRepository implements MemberRepositoryInterface
+class  MemberRepository extends BaseRepository implements MemberInterfaceRepository
 {
     protected $model;
 
@@ -14,7 +13,7 @@ class  MemberRepository extends BaseRepository implements MemberRepositoryInterf
         $this->model = $model;
     }
 
-    public function list(Request $request){
+    public function list($request){
         $query = $this->model->query();
 
         $orderBy = $request->order_by ?? [];

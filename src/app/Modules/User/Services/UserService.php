@@ -2,13 +2,12 @@
 
 namespace App\Modules\User\Services;
 
-use App\Modules\User\Repositories\UserRepositoryInterface; // Ensure this interface exists or adjust accordingly
-use Illuminate\Validation\ValidationException;
+use App\Modules\User\Repositories\UserRepository;
 
 class UserService {
     protected $repository;
 
-    public function __construct(UserRepositoryInterface $repository)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
     }

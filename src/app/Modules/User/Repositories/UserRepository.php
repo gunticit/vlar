@@ -4,7 +4,7 @@ namespace App\Modules\User\Repositories;
 use App\Repositories\BaseRepository;
 use App\Models\User;
 
-class  UserRepository extends BaseRepository implements UserRepositoryInterface
+class  UserRepository extends BaseRepository implements UserInterfaceRepository
 {
     protected $model;
 
