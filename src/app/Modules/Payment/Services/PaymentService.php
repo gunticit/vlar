@@ -2,7 +2,7 @@
 
 namespace App\Modules\Payment\Services;
 
-use App\Repositories\Payment\PaymentRepositoryInterface;
+use App\Modules\Payment\Repositories\PaymentRepositoryInterface;
 use Illuminate\Validation\ValidationException;
 
 class PaymentService {

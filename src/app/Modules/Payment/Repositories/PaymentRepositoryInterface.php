@@ -1,10 +1,10 @@
 <?php
-namespace App\Modules\{{moduleName}}\Repositories;
+namespace App\Modules\Payment\Repositories;
 
 use App\Repositories\RepositoryInterface;
 use Illuminate\Support\Facades\Request;
 
-interface {{moduleName}}RepositoryInterface extends RepositoryInterface
+interface PaymentRepositoryInterface extends RepositoryInterface
 {
     public function list(Request $request);
 }

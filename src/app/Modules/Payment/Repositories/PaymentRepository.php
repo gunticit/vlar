@@ -2,10 +2,10 @@
 namespace App\Modules\Payment\Repositories;
 
 use App\Repositories\BaseRepository;
-use App\Modules\Payment\Models;
+use App\Modules\Payment\Models\Payment;
 use Illuminate\Support\Facades\Request;
 
-class  PaymentRepository extends BaseRepository implements PaymentRepositoryInterface
+class PaymentRepository extends BaseRepository implements PaymentRepositoryInterface
 {
     protected $model;
 

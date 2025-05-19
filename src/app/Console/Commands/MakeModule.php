@@ -60,7 +60,7 @@ class MakeModule extends Command
         File::put("$modulePath/Views/index.blade.php", $viewTemplate);
         File::put("$modulePath/Controllers/{$moduleName}Controller.php", $controllersTemplate);
         File::put("$modulePath/Repositories/{$moduleName}Repository.php", $repositoriesTemplate);
-        File::put("$modulePath/Repositories/{$moduleName}InterfaceRepository.php", $interfaceRepositoriesTemplate);
+        File::put("$modulePath/Repositories/{$moduleName}RepositoryInterface.php", $interfaceRepositoriesTemplate);
         File::put("$modulePath/Services/{$moduleName}Service.php", $servicesTemplate);    
         File::put("$modulePath/Models/{$moduleName}Model.php", $modelsTemplate);
         File::put("$modulePath/Models/{$moduleName}Table.php", $tablesTemplate);

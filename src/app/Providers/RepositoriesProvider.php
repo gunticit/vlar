@@ -20,7 +20,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $modules = $this->getModules();
         foreach ($modules as $module) {
-            $interface = "App\\Modules\\{$module}\\Repositories\\{$module}InterfaceRepository";
+            $interface = "App\\Modules\\{$module}\\Repositories\\{$module}RepositoryInterface";
             $repository = "App\\Modules\\{$module}\\Repositories\\{$module}Repository";
             $this->app->bind($interface, $repository);
         }

@@ -2,10 +2,10 @@
 namespace App\Modules\{{moduleName}}\Repositories;
 
 use App\Repositories\BaseRepository;
-use App\Modules\{{moduleName}}\Models;
+use App\Modules\{{moduleName}}\Models\{{moduleName}};
 use Illuminate\Support\Facades\Request;
 
-class  {{moduleName}}Repository extends BaseRepository implements {{moduleName}}RepositoryInterface
+class {{moduleName}}Repository extends BaseRepository implements {{moduleName}}RepositoryInterface
 {
     protected $model;
 
